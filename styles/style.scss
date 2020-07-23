@@ -1,85 +1,76 @@
-body {
-  margin: 0;
-  padding: 0;
-}
-main {
-  background-color: rgb(235, 235, 235);
-}
-
-.contact {
+.firstLine {
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  flex-wrap: wrap;
-  align-content: space-around;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  width: 100%;
 }
-.avatar {
+.secondLine {
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  flex-wrap: wrap;
-  align-content: space-around;
-  list-style: none;
-  margin: 20px;
-  padding: 0;
-  width: 650px;
-  height: 300px;
-  font-size: 25px;
-  font-family: "Times New Roman";
-  background-color: rgb(255, 255, 255);
-  border-radius: 20px;
-  box-shadow: 0 0 2px;
 }
-.login {
-  padding: 10px;
-  font-size: 35px;
-  display: block;
+.thirdLine {
+  display: flex;
+}
+.first {
   position: relative;
-  bottom: 30px;
-  margin: 0;
-  padding: 0;
-  width: 270px;
-  height: 125px;
+  width: 200px;
+  height: 200px;
+  border: 4px double black;
 }
-.image {
+.second {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border: 4px double black;
+}
+.third {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border: 4px double black;
+}
+.fours {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border: 4px double black;
+}
+.fives {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border: 4px double black;
+}
+.sixes {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border: 4px double black;
+}
+.sevens {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border: 4px double black;
+}
+.eights {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border: 4px double black;
+}
+.nines {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border: 4px double black;
+}
+.status {
   width: 150px;
   height: 150px;
   position: relative;
-  left: 160px;
+  left: 215px;
+  border: 4px double black;
+  margin: 20px;
 }
-.contributions {
-  padding-top: 62px;
-  font-size: 25px;
-}
-div.message {
-  height: 50px;
-  width: 150px;
+.clear{
   position: relative;
-  top: 100px;
-  right: 35%;
-  border-radius: 15px;
-  box-shadow: 0 0 5px rgba($color: #888888, $alpha: 1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-p.message {
-  position: relative;
-}
-div.selector select{
-    display: block;
-    width: 300px;
-    height: 50px;
-    font-size: 25px;
-    position: relative;
-    left: 45%;
-    color: #17bdff;
-    border-radius: 15px;
-    
+  left: 265px;
+  margin: 20px;
 }
