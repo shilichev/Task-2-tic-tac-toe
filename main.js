@@ -1,36 +1,150 @@
 let key = 1;
-const showCross = (number, status) => {// функция отрисовывающая крестик если статус тру и берет номер соответсвтвуюзего дива
-  $(".status1").remove();
-  if (status) {
-    $(`#${number}`).append(`<img src="images/крестик.png"></img>`);
-    $(".status").append(`<img class="status1" src="images/крестик.png"></img>`);
-    return;
+let click = [];
+let x = [
+  [2, 3, 4],
+  [5, 6, 7],
+  [8, 9, 10],
+];
+let stopGame = 1;
+const showCross = (i, j, status) => {
+  if (stopGame) {
+    // функция отрисовывающая крестик если статус тру и берет номер соответсвтвуюзего дива
+    $(".status1").remove();
+    if (status) {
+      $(`#${i}${j}`).append(
+        `<img class="forRemove" src="images/крестик.png"></img>`
+      );
+      $(".status").append(
+        `<img class="status1" src="images/нолик.png" width=150px></img>`
+      );
+      return;
+    }
   }
+
   return;
 };
-const showZero = (number, status) => {// функция отрисовывающая нолик если статус фолс и берет номер соответсвтвуюзего дива
-  $(".status1").remove();
-  if (status) {
+const showZero = (i, j, status) => {
+  if (stopGame) {
+    $(".status1").remove();
+    if (status) {
+      return;
+    }
+    $(`#${i}${j}`).append(
+      `<img class="forRemove" src="images/нолик.png"></img>`
+    );
+    $(".status").append(
+      `<img class="status1" src="images/крестик.png" width=150px></img>`
+    );
     return;
   }
-  $(`#${number}`).append(`<img src="images/нолик.png"></img>`);
-  $(".status").append(`<img class="status1" src="images/нолик.png"></img>`);
-  return
 };
-const getNumbers = () => {
-  let numbers = document.getElementsByClassName(`coordinate`);//получаем массив из элементов с соответствующим классом
-  for (i = 0; i < numbers.length; i++) {//перебираем все возможные варианты события
-    let id = i;// приравниваем переменную айди к вариантам (хз зачем без этого не пашет)
-    $(`#${id}`).click(function () {//ну это наверное в отдельную функцию можно вынести как кликер 
-      if (key) {//проверка переменной кей на то что отрисовывать крестик или нолик
-        showCross(id, key);// отрисовка крестика
-        key = key - 1;
+const showWin = () => {
+  if (stopGame) {
+    $(".theEnd").append(`<p class ="forRemove">You WON!</p>`);
+    stopGame = 0;
+  }
+};
+const showEnd = () => {
+  $(".theEnd").append(`<p class ="forRemove">GAME OVER</p>`);
+  stopGame = 0;
+};
+const checkWin = () => {
+  if (x[0][0] === x[0][1] && x[0][1] === x[0][2]) {
+    showWin();
+    $(".firstLine").append(
+      ` <div class="lineHorizontal1 forRemove"><img src="images/horizontal.png"></div>`
+    );
+  } else if (x[1][0] === x[1][1] && x[1][1] === x[1][2]) {
+    showWin();
+    $(".secondLine").append(
+      ` <div class="lineHorizontal2 forRemove"><img src="images/horizontal.png"></div>`
+    );
+  } else if (x[2][0] === x[2][1] && x[2][1] === x[2][2]) {
+    showWin();
+    $(".thirdLine").append(
+      ` <div class="lineHorizontal3 forRemove"><img src="images/horizontal.png"></div>`
+    );
+  } else if (x[0][0] === x[1][1] && x[1][1] === x[2][2]) {
+    showWin();
+    $("main").append(
+      ` <div class="diagonal1 forRemove"><img src="images/horizontal.png"></div>`
+    );
+  } else if (x[0][2] === x[1][1] && x[1][1] === x[2][0]) {
+    showWin();
+    $("main").append(
+      ` <div class="diagonal2 forRemove"><img src="images/horizontal.png"></div>`
+    );
+  } else if (x[0][0] === x[1][0] && x[1][0] === x[2][0]) {
+    showWin();
+    $("main").append(
+      ` <div class="lineVertical1 forRemove"><img src="images/vertical.png"></div>`
+    );
+  } else if (x[0][1] === x[1][1] && x[1][1] === x[2][1]) {
+    showWin();
+    $("main").append(
+      ` <div class="lineVertical2 forRemove"><img src="images/vertical.png"></div>`
+    );
+  } else if (x[0][2] === x[1][2] && x[1][2] === x[2][2]) {
+    showWin();
+    $("main").append(
+      ` <div class="lineVertical2 forRemove"><img src="images/vertical.png"></div>`
+    );
+  } else if (
+    (x[0][0] == 0 || x[0][0] == 1) &&
+    (x[0][1] == 0 || x[0][1] == 1) &&
+    (x[0][2] == 0 || x[0][2] == 1) &&
+    (x[1][0] == 0 || x[1][0] == 1) &&
+    (x[1][1] == 0 || x[1][1] == 1) &&
+    (x[1][2] == 0 || x[1][2] == 1) &&
+    (x[2][0] == 0 || x[2][0] == 1) &&
+    (x[2][1] == 0 || x[2][1] == 1) &&
+    (x[2][2] == 0 || x[2][2] == 1)
+  ) {
+    showEnd();
+  }
+};
+
+const clicker = (i, j) => {
+  console.log(stopGame);
+  {
+    $(`#${i}${j}`).click(function () {
+      if (key) {
+        showCross(i, j, key);
+        key = 0;
+        x[i][j] = 1;
+        checkWin();
         return;
       }
-      showZero(id, key);//отрисовка нолика
-      key = key + 1;
+      showZero(i, j, key);
+      x[i][j] = 0;
+      checkWin();
+      key = 1;
       return;
     });
   }
 };
+
+const getNumbers = () => {
+  for (i = 0; i < 3; i++) {
+    click[i] = [];
+    for (j = 0; j < 3; j++) {
+      click[i][j] = j;
+      clicker(i, j);
+    }
+  }
+  return;
+};
+
+const clear = () => {
+  $(".clear").click(function () {
+    $(".forRemove").remove();
+    stopGame = 1;
+    x = [
+      [2, 3, 4],
+      [5, 6, 7],
+      [8, 9, 10],
+    ];
+  });
+};
 getNumbers();
+clear();

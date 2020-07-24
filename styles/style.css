@@ -16,63 +16,7 @@
   display: flex;
 }
 
-.first {
-  position: relative;
-  width: 200px;
-  height: 200px;
-  border: 4px double black;
-}
-
-.second {
-  position: relative;
-  width: 200px;
-  height: 200px;
-  border: 4px double black;
-}
-
-.third {
-  position: relative;
-  width: 200px;
-  height: 200px;
-  border: 4px double black;
-}
-
-.fours {
-  position: relative;
-  width: 200px;
-  height: 200px;
-  border: 4px double black;
-}
-
-.fives {
-  position: relative;
-  width: 200px;
-  height: 200px;
-  border: 4px double black;
-}
-
-.sixes {
-  position: relative;
-  width: 200px;
-  height: 200px;
-  border: 4px double black;
-}
-
-.sevens {
-  position: relative;
-  width: 200px;
-  height: 200px;
-  border: 4px double black;
-}
-
-.eights {
-  position: relative;
-  width: 200px;
-  height: 200px;
-  border: 4px double black;
-}
-
-.nines {
+.coordinate {
   position: relative;
   width: 200px;
   height: 200px;
@@ -88,9 +32,80 @@
   margin: 20px;
 }
 
+.status1 {
+  width: 150px;
+  height: 150px;
+}
+
 .clear {
   position: relative;
   left: 265px;
   margin: 20px;
+}
+
+.theEnd {
+  position: relative;
+  width: 600px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.lineHorizontal1 {
+  position: absolute;
+  top: 105px;
+  left: 40px;
+}
+
+.lineHorizontal2 {
+  position: absolute;
+  top: 305px;
+  left: 40px;
+}
+
+.lineHorizontal3 {
+  position: absolute;
+  top: 515px;
+  left: 40px;
+}
+
+.lineVertical1 {
+  position: absolute;
+  left: 105px;
+  top: 35px;
+}
+
+.lineVertical2 {
+  position: absolute;
+  left: 415px;
+  top: 35px;
+}
+
+.lineVertical3 {
+  position: absolute;
+  left: 725px;
+  top: 35px;
+}
+
+.diagonal1 {
+  position: absolute;
+  left: 45px;
+  top: 315px;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.diagonal2 {
+  position: absolute;
+  left: 40px;
+  top: 315px;
+  -webkit-transform: rotate(135deg);
+          transform: rotate(135deg);
 }
 /*# sourceMappingURL=style.css.map */
