@@ -1,4 +1,5 @@
 let key = 1;
+let keyForClean = 1;
 let click = [];
 let x = [
   [2, 3, 4],
@@ -87,7 +88,7 @@ const checkWin = () => {
   } else if (x[0][2] === x[1][2] && x[1][2] === x[2][2]) {
     showWin();
     $("main").append(
-      ` <div class="lineVertical2 forRemove"><img src="images/vertical.png"></div>`
+      ` <div class="lineVertical3 forRemove"><img src="images/vertical.png"></div>`
     );
   } else if (
     (x[0][0] == 0 || x[0][0] == 1) &&
@@ -113,12 +114,14 @@ const clicker = (i, j) => {
         key = 0;
         x[i][j] = 1;
         checkWin();
+        $(`#${i}${j}`).off("click");
         return;
       }
       showZero(i, j, key);
       x[i][j] = 0;
       checkWin();
       key = 1;
+      $(`#${i}${j}`).off("click");
       return;
     });
   }
@@ -129,6 +132,7 @@ const getNumbers = () => {
     click[i] = [];
     for (j = 0; j < 3; j++) {
       click[i][j] = j;
+      $(`#${i}${j}`).off("click");
       clicker(i, j);
     }
   }
@@ -144,6 +148,8 @@ const clear = () => {
       [5, 6, 7],
       [8, 9, 10],
     ];
+    getNumbers();
+    return;
   });
 };
 getNumbers();
